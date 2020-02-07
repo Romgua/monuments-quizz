@@ -1,0 +1,12 @@
+{% if monument %}
+    <ul>
+        <li>
+            {{ monument.name }}
+        </li>
+        <li>
+            <img src="{{monument.image.url}}" alt="placeholder" style="height:200;width:200">
+        </li>
+    </ul>
+{% else %}
+    <p>No monument are available.</p>
+{% endif %}
