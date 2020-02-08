@@ -43,58 +43,106 @@
     ></script>
   </head>
 
-  <body class="text-center theme-page" style="background-color:black;">
-    <div>
-      <div style="width:50%; margin: auto; margin-top: 50px;">
-        <button
-          type="button"
-          class="btn btn-outline-danger btn-lg"
-          style="height: 50px; border-radius: 10px;"
-        >
-          <span
-            style="font: bold 1em Impact, sans-serif; text-align: center;letter-spacing: 4px"
-          >
-            Niveau de complexité
-          </span>
-        </button>
-        <span>
+  <body class="text-center theme-page">
+    <div class="main-title title-custom" style="width: 50%; margin: auto;">
+      Monuments Quizz
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div>
           <a href="html/jeu.html">
-            <img src="../images/logo.png" alt="" style="border-radius: 50px;" />
+            <img
+              class="img-logo-index"
+              src="../images/logo.png"
+              alt=""
+              style="border-radius: 50px;"
+            />
           </a>
-        </span>
+        </div>
+      </div>
+      <div class="col-6 menu">
         <div>
           <button
             type="button"
-            class="btn btn-outline-primary btn-lg"
-            style="width: 120px; height: 50px; border-radius: 10px;"
+            class="btn btn-outline-danger btn-lg btn-custom-simple"
+            disabled
           >
-            <span
-              style="font: bold 1em Impact, sans-serif; text-align: center;letter-spacing: 4px"
-            >
-              Régles
+            <i class="fab fa-think-peaks"></i>
+            <span class="btn-text-custom">
+              Niveau de complexité
             </span>
+            <i class="fab fa-think-peaks"></i>
           </button>
+        </div>
+        <!--<div style="margin-bottom: 20px;">
+          <div class="difficulty-set" style="margin-top: 10px;">
+            <button type="button" class="btn btn-outline-danger btn-lg" style="width: 50px; height: 50px; border-radius: 50%;">
+              1
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-lg" style="width: 50px; height: 50px; border-radius: 50%;">
+              2
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-lg" style="width: 50px; height: 50px; border-radius: 50%;">
+              3
+            </button>
+          </div>
+        </div>-->
+        <div>
           <button
             type="button"
-            class="btn btn-outline-warning btn-lg"
-            style="height: 50px; border-radius: 10px;"
+            class="btn btn-outline-warning btn-lg btn-start-game"
           >
-            <span
-              style="font: bold 1em Impact, sans-serif; text-align: center;letter-spacing: 4px"
-            >
+            <span class="btn-text-start-game">
               Start game
+              <i class="far fa-play-circle"></i>
             </span>
           </button>
         </div>
+        <div>
+          <button
+            type="button"
+            class="btn btn-outline-primary btn-lg btn-custom-simple"
+            data-toggle="collapse"
+            data-target="#collapseExample"
+          >
+            <span class="btn-text-custom">
+              Régles du jeu
+              <i class="fas fa-book"></i>
+            </span>
+          </button>
+          <div class="collapse text-center" id="collapseExample" style="width: 500px; margin: auto;">
+            <div class="card card-body text-left" style="height: 300px; overflow: scroll;">
+              <p>
+                L'application Monuments Quizz est un site web qui a pour objectif
+                de tester les connaissances de l'utilisateur sur les monuments
+                mondiaux et leurs villes. Le système de jeu se base sur un système
+                de point qui récompense la prise de risque. Sur une série de 10
+                questions, l'utilisateur sera amené à choisir, pour chaque
+                question, un mode de réponse afin d'identifier la ville du
+                monument visualiser à l’écran. Ces modes se déclinent en 3
+                versions avec différents règle de scoring :
+                <ul>
+                  <li>Scoring bas : 2 choix de ville (1 point)</li>
+                  <li>Scoring moyen : 4 choix de ville (3 points)</li>
+                  <li>Scoring haut : saisie du nom de la ville directement (5 points)</li>
+                </ul>
+                L’utilisateur sera récompensé en
+                fonction du choix de scoring qu’il aura sélectionné. La réponse
+                validée avec le scoring bas vaudra 1 point, avec le scoring moyen
+                vaudra 4 points et avec le scoring haut vaudra 5 points.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
