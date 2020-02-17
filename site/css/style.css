@@ -2,7 +2,6 @@
   background-color: black;
   margin-top: 2em;
 }
-
 .menu {
   margin-top: 10em;
 }
@@ -14,6 +13,9 @@
   letter-spacing: 16px;
   border: aliceblue 3px solid;
   border-radius: 30px;
+  width: 80%;
+  margin: auto;
+  padding: 20px;
 }
 .btn-custom-simple {
   height: 50px;
@@ -23,7 +25,7 @@
 }
 
 .btn-start-game {
-  height: 100px;
+  height: 140px;
   border-radius: 10px;
   margin-bottom: 20px;
   width: 500px;
