@@ -1,7 +1,12 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'quizz/base.css' %}">
+</head>
+</head>
 {% if monument %}
     <ul>
         <li>
-            {{ monument.name }}
+            <p class="title-momument">{{ monument.name }}</p>
         </li>
         <li>
             <img src="{{monument.image.url}}" alt="placeholder" style="height:200;width:200">
