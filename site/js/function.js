@@ -26,6 +26,7 @@ function reset(){
 }
 
 function send(){
+
     reset();
 
     // another action to send to back-end

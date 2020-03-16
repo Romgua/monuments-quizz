@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="" />
+    <meta name="description" content="Monument Quizz" />
     <meta name="author" content="" />
 
     <title>Monument Quizz</title>
@@ -57,6 +57,12 @@
       <div class="card-header">
         <a href="#" class="badge badge-warning" style="padding-left: 20px; padding-right: 20px"> 1 / 10</a>
       </div>
+      <div>
+        <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+          sagittis lacus vel augue laoreet rutrum faucibus.">
+          Popover on bottom
+        </button>
+      </div>
       <div class="card-body">
         <h5 class="card-title">Dans quelle ville se trouve ce monument ?  <i class="fas fa-gopuram"></i></h5>
         <hr />
@@ -77,11 +83,10 @@
                 <button
                         id="buttonChoiceDuo"
                         type="button"
-                        class="btn btn-outline-danger btn-lg"
+                        class="btn btn-outline-danger btn-lg choice-button"
                         data-toggle="tooltip"
                         data-placement="top"
                         title="Ce mode de réponse vous rapportera 1 point"
-                        style="border-radius: 50px; margin: 20px;"
                         onclick="showAnswer(this)"
                 >
                   Duo
@@ -90,11 +95,10 @@
                 <button
                         id="buttonChoiceCarre"
                         type="button"
-                        class="btn btn-outline-warning btn-lg"
+                        class="btn btn-outline-warning btn-lg choice-button"
                         data-toggle="tooltip"
                         data-placement="top"
                         title="Ce mode de réponse vous rapportera 3 point"
-                        style="border-radius: 50px; margin: 20px;"
                         onclick="showAnswer(this)"
                 >
                   Carré
@@ -103,11 +107,10 @@
                 <button
                         id="buttonChoiceCash"
                         type="button"
-                        class="btn btn-outline-primary btn-lg"
+                        class="btn btn-outline-primary btn-lg choice-button"
                         data-toggle="tooltip"
                         data-placement="top"
                         title="Ce mode de réponse vous rapportera 5 point"
-                        style="border-radius: 50px; margin: 20px;"
                         onclick="showAnswer(this)"
                 >
                   Cash
@@ -118,14 +121,14 @@
                 <div id="duo">
                   <h6> Vous avez le choix entre ces 2 réponses: </h6>
                   <hr>
-                  <label class="radio-inline"><input type="radio" name="optradio"> Oslo </label>
+                  <label class="radio-inline"><input type="radio" name="optradio"> Oslo </label><br />
                   <label class="radio-inline"><input type="radio" name="optradio"> Helsinki </label><br />
-                  <button type="button" class="btn btn-outline-primary" onclick="send()">Validez votre réponse</button>
+                  <button type="button" class="btn btn-outline-secondary" onclick="send()">Validez votre réponse</button>
                 </div>
                 <div id="carre">
                   <h6> Vous avez le choix entre ces 4 réponses: </h6>
                   <hr>
-                  <div class="row">
+                  <div class="row text-left">
                     <div class="col">
                       <label class="radio-inline"><input type="radio" name="optradio"> New York </label>
                     </div>
@@ -140,12 +143,12 @@
                       <label class="radio-inline"><input type="radio" name="optradio">  Londre </label>
                     </div>
                   </div>
-                  <button type="button" class="btn btn-outline-primary" onclick="send()">Validez votre réponse</button>
+                  <button type="button" class="btn btn-outline-secondary" onclick="send()">Validez votre réponse</button>
                 </div>
                 <div id="cash">
                   <h6> Veuillez saisir votre réponse: </h6>
                   <hr>
-                  <div class="input-group mb-3">
+                  <div class="input-group mb-3 text-left">
                     <input type="text" class="form-control" placeholder="Entrez votre réponse" aria-label="Recipient's username" aria-describedby="button-addon2">
                     <div class="input-group-append">
                       <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="send()">Valider la réponse</button>

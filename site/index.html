@@ -71,7 +71,7 @@
             class="btn btn-outline-danger btn-lg btn-custom-simple"
             disabled
           >
-            <i class="fab fa-think-peaks"></i> 
+            <i class="fab fa-think-peaks"></i>
             <span class="btn-text-custom">
               Niveau de complexité
             </span>
@@ -106,16 +106,29 @@
           <button
             type="button"
             class="btn btn-outline-primary btn-lg btn-custom-simple"
-            data-toggle="collapse"
-            data-target="#collapseExample"
+            data-toggle="modal" data-target="#exampleModal"
           >
             <span class="btn-text-custom">
               Régles du jeu
               <i class="fas fa-book"></i>
             </span>
           </button>
-          <div class="collapse text-center" id="collapseExample" style="width: 500px; margin: auto;">
-            <div class="card card-body text-left" style="height: 300px; overflow: scroll;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Règles du jeu</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-left">
+            <div style="height: 300px; overflow: scroll;">
               <p>
                 L'application Monuments Quizz est un site web qui a pour objectif
                 de tester les connaissances de l'utilisateur sur les monuments
@@ -125,17 +138,20 @@
                 question, un mode de réponse afin d'identifier la ville du
                 monument visualiser à l’écran. Ces modes se déclinent en 3
                 versions avec différents règle de scoring :
-                <ul>
-                  <li>Scoring bas : 2 choix de ville (1 point)</li>
-                  <li>Scoring moyen : 4 choix de ville (3 points)</li>
-                  <li>Scoring haut : saisie du nom de la ville directement (5 points)</li>
-                </ul>
-                L’utilisateur sera récompensé en
-                fonction du choix de scoring qu’il aura sélectionné. La réponse
-                validée avec le scoring bas vaudra 1 point, avec le scoring moyen
-                vaudra 4 points et avec le scoring haut vaudra 5 points.
+              <ul>
+                <li>Scoring bas : 2 choix de ville (1 point)</li>
+                <li>Scoring moyen : 4 choix de ville (3 points)</li>
+                <li>Scoring haut : saisie du nom de la ville directement (5 points)</li>
+              </ul>
+              L’utilisateur sera récompensé en
+              fonction du choix de scoring qu’il aura sélectionné. La réponse
+              validée avec le scoring bas vaudra 1 point, avec le scoring moyen
+              vaudra 4 points et avec le scoring haut vaudra 5 points.
               </p>
             </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Fermer <i class="fas fa-times"></i></button>
           </div>
         </div>
       </div>

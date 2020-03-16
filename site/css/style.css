@@ -49,6 +49,11 @@
   letter-spacing: 4px;
 }
 
+.choice-button {
+  border-radius: 50px!important;
+  margin: 20px;
+}
+
 .img-logo-index {
   width: 700px;
   height: 700px;
