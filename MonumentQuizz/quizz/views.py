@@ -24,15 +24,13 @@ def detail(request):
     else:
         todo_monuments = request.user.get_todo_monuments()
         monument = todo_monuments.first()
-        if not monument:
-            return render(request, 'quizz/detail.html', {})
         form = MonumentNameForm()
         context = {
             'user': request.user,
             'monument': monument,
             'form': form,
         }
-        if monument.image:
+        if monument:
             real_url = monument.image.url.split("/")
             real_url = '/' + '/'.join(real_url[1:])
 

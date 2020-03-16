@@ -34,7 +34,6 @@ class Monument(models.Model):
             created = True
         monument = super().save(*args, **kwargs)
         if created:
-            import pdb; pdb.set_trace()
             for user in QuizzUser.objects.all():
                 UserMonument.objects.create(
                     monument_id=self.pk,
