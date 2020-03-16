@@ -2,22 +2,28 @@
 <head>
     <link rel="stylesheet" href="{% static 'quizz/base.css' %}">
 </head>
-</head>
-{% if monument %}
-    <ul>
-        <li>
-            <p class="title-momument">{{ monument.name }}</p>
-        </li>
-        <li>
-            <img src="{{monument.image.url}}" alt="placeholder" style="height:200;width:200">
-        </li>
-        <li>
-            <form>
-                <input type="text" id="name"/>
-                <input type="submit"/>
-            </form>
-        </li>
-    </ul>
-{% else %}
-    <p>No monument are available.</p>
-{% endif %}
+<body>
+    {{user.name}}
+    {{user.level}}
+    {{user.experience}}/{{user.get_treshold}}
+    {% if monument %}
+        <ul>
+            <li>
+                <p class="title-momument">{{ monument.name }}</p>
+            </li>
+            <li>
+                <img src="{{monument.image.url}}" alt="placeholder" style="height:200;width:200">
+            </li>
+            <li>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{form}}
+                    <input type="hidden" name="monument_id" value="{{monument.id}}" />
+                    <input type="submit" value="submit"/>
+                </form>
+            </li>
+        </ul>
+    {% else %}
+        <p>No monument are available.</p>
+    {% endif %}
+</body>

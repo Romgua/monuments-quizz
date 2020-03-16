@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import Http404
 from django.http import HttpResponse
+from .forms import MonumentNameForm
+from django.http import HttpResponseRedirect
 
 from .models import Monument
 # Create your views here.
@@ -9,15 +11,29 @@ def index(request):
     return HttpResponse("Hello, world. You're at the monument index.")
 
 def detail(request):
-    try:
-        monument = Monument.objects.first()
-    except monument.DoesNotExist:
-        raise Http404("Question does not exist")
-    context = {
-        'monument': monument,
-    }
-    if monument.image:
-        real_url = monument.image.url.split("/")
-        real_url = '/' + '/'.join(real_url[1:])
-        context.update({'real_url' : real_url})
+    if request.method == 'POST':
+        form = MonumentNameForm(request.POST)
+        if form.is_valid():
+            request.method = 'GET'
+            monument = Monument.objects.get(id=request.POST.get('monument_id'))
+            if monument.name.lower() == request.POST.get('monument_name').lower():
+                request.user.add_experience(monument)
+                request.user.register_done(monument)
+                request.user.save()
+            return detail(request)
+    else:
+        todo_monuments = request.user.get_todo_monuments()
+        monument = todo_monuments.first()
+        if not monument:
+            return render(request, 'quizz/detail.html', {})
+        form = MonumentNameForm()
+        context = {
+            'user': request.user,
+            'monument': monument,
+            'form': form,
+        }
+        if monument.image:
+            real_url = monument.image.url.split("/")
+            real_url = '/' + '/'.join(real_url[1:])
+
     return render(request, 'quizz/detail.html', context)
