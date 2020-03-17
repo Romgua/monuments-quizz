@@ -8,7 +8,7 @@ from .models import Monument
 # Create your views here.
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the monument index.")
+    return render(request, 'quizz/index.html')
 
 def detail(request):
     if request.method == 'POST':
