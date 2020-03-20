@@ -30,14 +30,17 @@ function showAnswer(element) {
         $("#carre").hide();
         $("#cash").hide();
         $("#duo").show();
+        $("#response-mode").val("duo");
     } else if($(element).attr("id") === 'buttonChoiceCarre'){
         $("#cash").hide();
         $("#duo").hide();
         $("#carre").show();
+        $("#response-mode").val("carre");
     } else {
         $("#duo").hide();
         $("#carre").hide();
         $("#cash").show();
+        $("#response-mode").val("cash");
     }
 }
 

@@ -5,7 +5,7 @@ from .forms import MonumentNameForm
 from django.http import HttpResponseRedirect
 
 from .models import Monument
-from .constants import FAKE_CITIES_LIST
+from .constants import FAKE_CITIES_LIST, EXPERIENCE_MODE_VALUES
 
 import random
 
@@ -52,7 +52,9 @@ def jeu(request):
                         if request.POST.get('monument_name') 
                         else request.POST.get('monument_name_text'))
         if monument.city.lower() == response.lower():
-            request.user.add_experience(monument)
+            import pdb; pdb.set_trace()
+            xp_count = EXPERIENCE_MODE_VALUES.get(request.POST.get('mode'))
+            request.user.add_experience(monument, xp_count)
             request.user.register_done(monument)
             request.user.save()
         return jeu(request)

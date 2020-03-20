@@ -12,8 +12,8 @@ class QuizzUser(AbstractUser):
     def get_treshold(self):
         return EXPERIENCE_EXP_INCREASE * self.level + EXPERIENCE_CONSTANT
 
-    def add_experience(self, monument):
-        self.experience += len(monument.city)
+    def add_experience(self, monument, xp_count):
+        self.experience += xp_count
         if self.experience >= self.get_treshold():
             self.level += 1
             self.experience = self.experience - self.get_treshold()
