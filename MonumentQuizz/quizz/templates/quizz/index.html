@@ -15,9 +15,9 @@
     <title>Monument Quizz</title>
 
     <link rel="stylesheet" href="{% static 'quizz/base.css' %}">
-    
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link
+    <script language="javascript" src="{% static 'js/function.js' %}"></script>
+
+        <link
       href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
       rel="stylesheet"
     />
@@ -59,7 +59,7 @@
     <div class="row">
       <div class="col-6">
         <div>
-          <a href="html/jeu.html">
+          <a href="jeu">
             <img
               class="img-logo-index"
               src="../../../media/img/logo.png"
@@ -82,24 +82,23 @@
             </span>
             <i class="fab fa-think-peaks"></i>
           </button>
-        </div>
-        <!--<div style="margin-bottom: 20px;">
-          <div class="difficulty-set" style="margin-top: 10px;">
-            <button type="button" class="btn btn-outline-danger btn-lg" style="width: 50px; height: 50px; border-radius: 50%;">
+          <div class="complexity" style="display: flex; width: 500px; text-align: center; margin: auto;">
+            <button id="firstComplexity" style="width: 100%;" type="button" class="btn btn-outline-danger btn-xs" onclick="setComplexity(this)">
               1
             </button>
-            <button type="button" class="btn btn-outline-danger btn-lg" style="width: 50px; height: 50px; border-radius: 50%;">
+            <button id="secondComplexity" style="width: 100%;" type="button" class="btn btn-outline-danger btn-xs" onclick="setComplexity(this)">
               2
             </button>
-            <button type="button" class="btn btn-outline-danger btn-lg" style="width: 50px; height: 50px; border-radius: 50%;">
+            <button id="thirdComplexity"  style="width: 100%;" type="button" class="btn btn-outline-danger btn-xs" onclick="setComplexity(this)">
               3
             </button>
-          </div>
-        </div>-->
+          </div><br/>
+        </div>
         <div>
           <button
             type="button"
             class="btn btn-outline-warning btn-lg btn-start-game"
+            onclick="window.location.href='jeu'"
           >
             <span class="btn-text-start-game">
               Start game
@@ -111,35 +110,48 @@
           <button
             type="button"
             class="btn btn-outline-primary btn-lg btn-custom-simple"
-            data-toggle="collapse"
-            data-target="#collapseExample"
+            data-toggle="modal"
+            data-target="#exampleModal"
           >
             <span class="btn-text-custom">
               Régles du jeu
               <i class="fas fa-book"></i>
             </span>
           </button>
-          <div class="collapse text-center" id="collapseExample" style="width: 500px; margin: auto;">
-            <div class="card card-body text-left" style="height: 300px; overflow: scroll;">
-              <p>
-                L'application Monuments Quizz est un site web qui a pour objectif
-                de tester les connaissances de l'utilisateur sur les monuments
-                mondiaux et leurs villes. Le système de jeu se base sur un système
-                de point qui récompense la prise de risque. Sur une série de 10
-                questions, l'utilisateur sera amené à choisir, pour chaque
-                question, un mode de réponse afin d'identifier la ville du
-                monument visualiser à l’écran. Ces modes se déclinent en 3
-                versions avec différents règle de scoring :
-                <ul>
-                  <li>Scoring bas : 2 choix de ville (1 point)</li>
-                  <li>Scoring moyen : 4 choix de ville (3 points)</li>
-                  <li>Scoring haut : saisie du nom de la ville directement (5 points)</li>
-                </ul>
-                L’utilisateur sera récompensé en
-                fonction du choix de scoring qu’il aura sélectionné. La réponse
-                validée avec le scoring bas vaudra 1 point, avec le scoring moyen
-                vaudra 4 points et avec le scoring haut vaudra 5 points.
-              </p>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"> <i class="fas fa-book"></i> Règles du jeu </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body text-left">
+                  <p>
+                    L'application Monuments Quizz est un site web qui a pour objectif
+                    de tester les connaissances de l'utilisateur sur les monuments
+                    mondiaux et leurs villes. Le système de jeu se base sur un système
+                    de point qui récompense la prise de risque. Sur une série de 10
+                    questions, l'utilisateur sera amené à choisir, pour chaque
+                    question, un mode de réponse afin d'identifier la ville du
+                    monument visualiser à l’écran. Ces modes se déclinent en 3
+                    versions avec différents règle de scoring :
+                    <ul>
+                      <li>Scoring bas : 2 choix de ville (1 point)</li>
+                      <li>Scoring moyen : 4 choix de ville (3 points)</li>
+                      <li>Scoring haut : saisie du nom de la ville directement (5 points)</li>
+                    </ul>
+                    L’utilisateur sera récompensé en
+                    fonction du choix de scoring qu’il aura sélectionné. La réponse
+                    validée avec le scoring bas vaudra 1 point, avec le scoring moyen
+                    vaudra 4 points et avec le scoring haut vaudra 5 points.
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">J'ai compris !</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
