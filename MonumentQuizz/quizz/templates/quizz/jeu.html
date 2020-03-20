@@ -67,93 +67,97 @@
           style="margin-top: 50px; margin-bottom: 30px;"
         >
           <img
-          src="../../../media/img/steakholder.png"
+          src="{{monument.image.url}}"
           alt="test"
             style="width: 200px!important; height: 70%!important;"
           />
         </div>
         <div>
-          <div class="card" style="margin-left: 100px; margin-right: 100px; border-radius: 30px">
-            <div class="card-body">
-              <div id="answers_choice" class="answers_choice">
-                <button
-                        id="buttonChoiceDuo"
-                        type="button"
-                        class="btn btn-outline-danger btn-lg choice-button"
-                        data-toggle="tooltip"
-                        data-placement="top"
-                        title="Ce mode de réponse vous rapportera 1 point"
-                        onclick="showAnswer(this)"
-                >
-                  Duo
-                  <i class="fas fa-dice-one"></i>
-                </button>
-                <button
-                        id="buttonChoiceCarre"
-                        type="button"
-                        class="btn btn-outline-warning btn-lg choice-button"
-                        data-toggle="tooltip"
-                        data-placement="top"
-                        title="Ce mode de réponse vous rapportera 3 point"
-                        onclick="showAnswer(this)"
-                >
-                  Carré
-                  <i class="fas fa-dice-three"></i>
-                </button>
-                <button
-                        id="buttonChoiceCash"
-                        type="button"
-                        class="btn btn-outline-primary btn-lg choice-button"
-                        data-toggle="tooltip"
-                        data-placement="top"
-                        title="Ce mode de réponse vous rapportera 5 point"
-                        onclick="showAnswer(this)"
-                >
-                  Cash
-                  <i class="fas fa-dice-five"></i>
-                </button>
-              </div>
-              <div class="content-answer">
-                <div id="duo">
-                  <h6> Vous avez le choix entre ces 2 réponses: </h6>
-                  <hr>
-                  <label class="radio-inline"><input type="radio" name="optradio"> {{choice_duo.0}} </label><br />
-                  <label class="radio-inline"><input type="radio" name="optradio"> {{choice_duo.1}}  </label><br />
-                  <button type="button" class="btn btn-outline-secondary" onclick="send()">Validez votre réponse</button>
+          <form method="POST">
+            {% csrf_token %}
+            <div class="card" style="margin-left: 100px; margin-right: 100px; border-radius: 30px">
+              <div class="card-body">
+                <div id="answers_choice" class="answers_choice">
+                  <button
+                          id="buttonChoiceDuo"
+                          type="button"
+                          class="btn btn-outline-danger btn-lg choice-button"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Ce mode de réponse vous rapportera 1 point"
+                          onclick="showAnswer(this)"
+                  >
+                    Duo
+                    <i class="fas fa-dice-one"></i>
+                  </button>
+                  <button
+                          id="buttonChoiceCarre"
+                          type="button"
+                          class="btn btn-outline-warning btn-lg choice-button"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Ce mode de réponse vous rapportera 3 point"
+                          onclick="showAnswer(this)"
+                  >
+                    Carré
+                    <i class="fas fa-dice-three"></i>
+                  </button>
+                  <button
+                          id="buttonChoiceCash"
+                          type="button"
+                          class="btn btn-outline-primary btn-lg choice-button"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Ce mode de réponse vous rapportera 5 point"
+                          onclick="showAnswer(this)"
+                  >
+                    Cash
+                    <i class="fas fa-dice-five"></i>
+                  </button>
                 </div>
-                <div id="carre">
-                  <h6> Vous avez le choix entre ces 4 réponses: </h6>
-                  <hr>
-                  <div class="row text-left">
-                    <div class="col">
-                      <label class="radio-inline"><input type="radio" name="optradio"> {{choice_carre.3}} </label>
-                    </div>
-                    <div class="col">
-                      <label class="radio-inline"><input type="radio" name="optradio">  {{choice_carre.0}} </label><br />
-                    </div>
-                    <div class="w-100"></div>
-                    <div class="col">
-                      <label class="radio-inline"><input type="radio" name="optradio">  {{choice_carre.1}} </label>
-                    </div>
-                    <div class="col">
-                      <label class="radio-inline"><input type="radio" name="optradio">  {{choice_carre.2}} </label>
-                    </div>
+                <div class="content-answer">
+                  <div id="duo">
+                    <h6> Vous avez le choix entre ces 2 réponses: </h6>
+                    <hr>
+                    <label class="radio-inline"><input type="radio" name="monument_name" value="{{choice_duo.0}}"> {{choice_duo.0}} </label><br />
+                    <label class="radio-inline"><input type="radio" name="monument_name" value="{{choice_duo.1}}"> {{choice_duo.1}}  </label><br />
+                    <input type="submit" class="btn btn-outline-secondary" id="button-addon2" value="Valider la réponse"/>
                   </div>
-                  <button type="button" class="btn btn-outline-secondary" onclick="send()">Validez votre réponse</button>
-                </div>
-                <div id="cash">
-                  <h6> Veuillez saisir votre réponse: </h6>
-                  <hr>
-                  <div class="input-group mb-3 text-left">
-                    <input type="text" class="form-control" placeholder="Entrez votre réponse" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="send()">Valider la réponse</button>
+                  <div id="carre">
+                    <h6> Vous avez le choix entre ces 4 réponses: </h6>
+                    <hr>
+                    <div class="row text-left">
+                      <div class="col">
+                        <label class="radio-inline"><input type="radio" name="monument_name" value="{{choice_carre.0}}"> {{choice_carre.0}} </label>
+                      </div>
+                      <div class="col">
+                        <label class="radio-inline"><input type="radio" name="monument_name" value="{{choice_carre.1}}">  {{choice_carre.1}} </label><br />
+                      </div>
+                      <div class="w-100"></div>
+                      <div class="col">
+                        <label class="radio-inline"><input type="radio" name="monument_name" value="{{choice_carre.2}}">  {{choice_carre.2}} </label>
+                      </div>
+                      <div class="col">
+                        <label class="radio-inline"><input type="radio" name="monument_name" value="{{choice_carre.3}}">  {{choice_carre.3}} </label>
+                      </div>
+                    </div>
+                    <input type="submit" class="btn btn-outline-secondary" id="button-addon2" value="Valider la réponse"/>
+                  </div>
+                  <div id="cash">
+                    <h6> Veuillez saisir votre réponse: </h6>
+                    <hr>
+                    <div class="input-group mb-3 text-left">
+                      <input type="text" name="monument_name_text" class="form-control" placeholder="Entrez votre réponse" aria-label="Recipient's username" aria-describedby="button-addon2">
+                      <div class="input-group-append">
+                        <input type="submit" class="btn btn-outline-secondary" id="button-addon2" value="Valider la réponse"/>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+            <input type="hidden" name="monument_id" value="{{monument.id}}" />
+          </form>
         </div>
       </div>
     </div>

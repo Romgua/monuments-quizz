@@ -3,13 +3,13 @@
     <link rel="stylesheet" href="{% static 'quizz/base.css' %}">
 </head>
 <body>
-    {{user.name}}
+    {{user.username}}
     {{user.level}}
     {{user.experience}}/{{user.get_treshold}}
     {% if monument %}
         <ul>
             <li>
-                <p class="title-momument">{{ monument.name }}</p>
+                <p class="title-momument">{{ monument.city }}</p>
             </li>
             <li>
                 <img src="{{monument.image.url}}" alt="placeholder" style="height:200;width:200">
