@@ -13,7 +13,7 @@ class QuizzUser(AbstractUser):
         return EXPERIENCE_EXP_INCREASE * self.level + EXPERIENCE_CONSTANT
 
     def add_experience(self, monument):
-        self.experience += len(monument.name)
+        self.experience += len(monument.city)
         if self.experience >= self.get_treshold():
             self.level += 1
             self.experience = self.experience - self.get_treshold()
@@ -27,7 +27,7 @@ class QuizzUser(AbstractUser):
 
 class Monument(models.Model):
     image = models.ImageField(upload_to="img", null=False)
-    name = models.CharField(max_length=200)
+    city = models.CharField(max_length=200)
 
     def save(self, *args, **kwargs):
         if not self.pk:
