@@ -1,17 +1,3 @@
-$(function() {
-
-    $("#form-game").submit(function() {
-        var nb = localStorage.getItem("numberQuestion");
-        localStorage.setItem("numberQuestion", nb++);
-
-        nb = localStorage.getItem("numberQuestion");
-
-        $("#badge-numberQuestion").html(nb + " / 10");
-        $("#numberQuestion").val(nb);
-    });
-
-});
-
 function initStorage() {
     localStorage.clear();
     localStorage.setItem("numberQuestion", 0);
@@ -20,12 +6,13 @@ function initStorage() {
 function incrementNumberQuestion() {
     var nb = localStorage.getItem("numberQuestion");
     console.log(nb);
-    localStorage.setItem("numberQuestion", nb++);
+    nb = parseInt(nb) + 1;
+    localStorage.setItem("numberQuestion", nb);
     nb = localStorage.getItem("numberQuestion");
     console.log(nb);
 
-    $("#badge-numberQuestion").html(nb + " / 10");
-    $("#numberQuestion").val(nb);
+    $("#badge-numberQuestion").html(parseInt(nb) + " / 10");
+    $("#numberQuestion").val(parseInt(nb));
 }
 
 function onLoadGame() {
