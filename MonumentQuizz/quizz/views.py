@@ -56,6 +56,16 @@ def jeu(request):
             request.user.add_experience(monument, xp_count)
         request.user.register_done(monument)
         request.user.save()
+        nb_question = int(request.POST.get('numberQuestion'))
+        if not nb_question:
+            nb_question = 0
+        if nb_question >= 10:
+            nb_ok = request.user.user_monuments.filter(done=True).count()
+            context = {
+                'user': request.user,
+                'nb_done': nb_ok,
+            }
+            return render(request, 'quizz/end.html', context)
         return jeu(request)
     else:
         todo_monuments = request.user.get_todo_monuments()
