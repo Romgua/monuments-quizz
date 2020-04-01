@@ -54,12 +54,19 @@ def jeu(request):
         if monument.city.lower() == response.lower():
             xp_count = EXPERIENCE_MODE_VALUES.get(request.POST.get('mode'))
             request.user.add_experience(monument, xp_count)
-            request.user.register_done(monument)
-            request.user.save()
+        request.user.register_done(monument)
+        request.user.save()
         return jeu(request)
     else:
         todo_monuments = request.user.get_todo_monuments()
         monument = todo_monuments.first()
+        if not monument:
+            nb_ok = request.user.user_monuments.filter(done=True).count()
+            context = {
+                'user': request.user,
+                'nb_done': nb_ok,
+            }
+            return render(request, 'quizz/end.html', context)
         form = MonumentNameForm()
         choice_carre = []
         choice_duo = []

@@ -18,6 +18,8 @@ class QuizzUser(AbstractUser):
         if self.experience >= self.get_treshold():
             self.level += 1
             self.experience = self.experience - self.get_treshold()
+            if self.experience < 0:
+                self.experience = 0
 
     def get_todo_monuments(self):
         done_user_monument = self.user_monuments.filter(done=True)
