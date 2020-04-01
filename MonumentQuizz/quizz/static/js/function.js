@@ -1,3 +1,40 @@
+$(function() {
+
+    $("form-game").submit(function() {
+        var nb = localStorage.getItem("numberQuestion");
+        localStorage.setItem("numberQuestion", nb++);
+
+        nb = localStorage.getItem("numberQuestion");
+
+        $("#badge-numberQuestion").html(nb + " / 10");
+        $("#numberQuestion").val(nb);
+    });
+
+});
+
+function initStorage() {
+    localStorage.clear();
+    localStorage.setItem("numberQuestion", 0);
+}
+
+function incrementNumberQuestion() {
+    var nb = localStorage.getItem("numberQuestion");
+    console.log(nb);
+    localStorage.setItem("numberQuestion", nb++);
+    nb = localStorage.getItem("numberQuestion");
+    console.log(nb);
+
+    $("#badge-numberQuestion").html(nb + " / 10");
+    $("#numberQuestion").val(nb);
+}
+
+function onLoadGame() {
+    var nb = localStorage.getItem("numberQuestion");
+
+    $("#badge-numberQuestion").html(nb + " / 10");
+    $("#numberQuestion").val(nb);
+}
+
 function init(){}
 
 // reset complecity
