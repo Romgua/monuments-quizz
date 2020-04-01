@@ -55,17 +55,20 @@
     <div>
         <div class="card text-white bg-dark mb-3" style="margin: auto; width: 70%;">
             <div class="card-header">
-              Votre bilan pour ce questionnaire
+              Questionnaire Terminé. Vous comptabilisez un total de {{nb_done}} monuments terminés.
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-6">
-                        <span style="width: 300px;" class="badge badge-danger">Utilisateur</span>
+                        <span style="width: 300px;" class="badge badge-danger">Nom : {{user.username}}</span>
                     </div>
                     <div class="col-6">
-                        <span style="width: 300px;" class="badge badge-warning">Warning</span>
+                        <span style="width: 300px;" class="badge badge-warning">Niveau : {{user.level}}</span>
                     </div>
                   </div>
+            </div>
+            <div>
+                <a href="/quizz">Retour à l'accueil</a>
             </div>
           </div>
     </div>
