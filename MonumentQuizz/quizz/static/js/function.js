@@ -1,6 +1,6 @@
 $(function() {
 
-    $("form-game").submit(function() {
+    $("#form-game").submit(function() {
         var nb = localStorage.getItem("numberQuestion");
         localStorage.setItem("numberQuestion", nb++);
 
