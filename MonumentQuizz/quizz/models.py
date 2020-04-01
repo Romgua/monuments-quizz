@@ -1,8 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from .constants import EXPERIENCE_EXP_INCREASE
+from .constants import EXPERIENCE_FACTOR
 from .constants import EXPERIENCE_CONSTANT
-
+from .constants import EXPERIENCE_POWER
+from math import pow
 
 # Create your models here
 class QuizzUser(AbstractUser):
@@ -10,7 +11,7 @@ class QuizzUser(AbstractUser):
     level = models.IntegerField(default=1)
 
     def get_treshold(self):
-        return EXPERIENCE_EXP_INCREASE * self.level + EXPERIENCE_CONSTANT
+        return EXPERIENCE_FACTOR * pow(self.level, EXPERIENCE_POWER) + EXPERIENCE_CONSTANT
 
     def add_experience(self, monument, xp_count):
         self.experience += xp_count
