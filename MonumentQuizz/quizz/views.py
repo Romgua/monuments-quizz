@@ -52,7 +52,6 @@ def jeu(request):
                         if request.POST.get('monument_name') 
                         else request.POST.get('monument_name_text'))
         if monument.city.lower() == response.lower():
-            import pdb; pdb.set_trace()
             xp_count = EXPERIENCE_MODE_VALUES.get(request.POST.get('mode'))
             request.user.add_experience(monument, xp_count)
             request.user.register_done(monument)
